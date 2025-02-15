@@ -1,6 +1,6 @@
 import React from 'react';
 import { 
-  Image, 
+  Calendar, // Assuming Calendar is the icon for Events
   Star, 
   Clock, 
   Archive, 
@@ -16,7 +16,7 @@ interface SidebarProps {
 }
 
 const menuItems = [
-  { icon: Image, label: 'Photos', active: true },
+  { icon: Calendar, label: 'Events', active: true }, // Updated icon to Calendar
   { icon: Star, label: 'Favorites' },
   { icon: Share2, label: 'Shared' },
   { icon: Clock, label: 'Recent' },

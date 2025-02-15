@@ -1,6 +1,7 @@
 import { Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const photos = [
+const events = [
   {
     id: 1,
     url: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba',
@@ -33,33 +34,34 @@ const photos = [
   },
 ];
 
-function PhotoGrid() {
+function EventGrid() {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {photos.map((photo) => (
-        <div
-          key={photo.id}
-          className="group relative aspect-square overflow-hidden rounded-lg bg-gray-100"
+      {events.map((event) => (
+        <Link
+          key={event.id}
+          to={`/event/${event.id}`}
+          className="group relative aspect-square overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800"
         >
           <img
-            src={photo.url}
-            alt={photo.title}
+            src={event.url}
+            alt={event.title}
             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div className="absolute bottom-0 left-0 right-0 p-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-white font-medium">{photo.title}</h3>
+                <h3 className="text-white font-medium">{event.title}</h3>
                 <button className="p-2 hover:bg-white/20 rounded-full transition-colors">
                   <Heart className="h-5 w-5 text-white" />
                 </button>
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
 }
 
-export default PhotoGrid;
+export default EventGrid;

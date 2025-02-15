@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { ImagePlus, Search, Settings, Menu, Sun, Moon } from 'lucide-react';
-import PhotoGrid from './components/PhotoGrid';
 import Sidebar from './components/Sidebar';
 import { useTheme } from './context/ThemeContext';
+import EventGrid from './components/EventGrid';
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -20,13 +20,13 @@ function App() {
             >
               <Menu className="h-6 w-6 text-gray-600 dark:text-gray-400" />
             </button>
-            <h1 className="text-xl font-semibold text-gray-800 dark:text-white">Photos</h1>
+            <h1 className="text-xl font-semibold text-gray-800 dark:text-white">Noosphere</h1>
           </div>
           <div className="flex items-center gap-4">
             <div className="relative hidden sm:block">
               <input
                 type="search"
-                placeholder="Search your photos"
+                placeholder="Search your events"
                 className="w-64 lg:w-96 px-4 py-2 pl-10 bg-gray-100 dark:bg-gray-800 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
               />
               <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
@@ -52,13 +52,13 @@ function App() {
         <Sidebar isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
         <main className="flex-1 p-6">
           <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Recent Photos</h2>
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Recent Events</h2>
             <button className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
               <ImagePlus className="h-5 w-5" />
-              <span className="hidden sm:inline">Add photos</span>
+              <span className="hidden sm:inline">Add events</span>
             </button>
           </div>
-          <PhotoGrid />
+          <EventGrid />
         </main>
       </div>
     </div>
